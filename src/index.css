@@ -103,3 +103,99 @@ p {
 .pagination {
   margin: 0 auto;
 }
+
+h1 {
+  margin: 0 auto;
+}
+
+.btn {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  background: #333;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
+    inset -5px -5px 10px #222;
+  color: #222;
+  font-size: 16px;
+}
+
+.btn:hover {
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222,
+    inset -5px -5px 10px #444;
+  font-size: 15px;
+  transition: 500ms;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.red:hover {
+  color: #f07171;
+  text-shadow: 0px 0px 10px #f07171;
+}
+
+.btn {
+  margin-left: 325px;
+  margin-top: 15px;
+}
+
+.edit-h1 {
+  margin-left: 550px;
+}
+
+.add-h1 {
+  margin-left: 520px;
+}
+
+.inp-container {
+  margin-left: 200px;
+  margin-top: 20px;
+}
+.inp {
+  width: 800px;
+  height: 30px;
+  border: solid 2px;
+  margin-top: 2px;
+}
+
+.cont-edit-todo {
+  width: 100%;
+  height: 600px;
+  background-color: #444;
+}
+
+.cont-add-todo {
+  width: 100%;
+  height: 600px;
+  background-color: #444;
+}
+
+::placeholder {
+  color: #5a233b;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.searh {
+  width: 220px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+#btn-add-category-admin {
+  margin-top: 350px;
+  margin-left: 645px;
+  position: absolute;
+}
+
+.modal-admin {
+  margin-top: 450px;
+  color: rgb(23, 23, 95);
+}
+.box {
+  box-shadow: 0px 4px 4px #000;
+}

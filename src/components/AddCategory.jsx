@@ -5,13 +5,13 @@ import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 const AddCategory = (props) => {
   const style = {
     position: "absolute",
-    top: "30%",
-    left: "30%",
+    top: "20%",
+    left: "25%",
     width: 700,
     display: "flex",
     border: "2px solid black",
     boxShadow: 24,
-    bgColor: "background.paper",
+    backGround: "white",
     p: 4,
   };
   const { createCategory } = useProduct();
@@ -30,10 +30,10 @@ const AddCategory = (props) => {
   };
   const { open, handleClose } = props;
   return (
-    <div>
-      <Modal onClose={handleClose} open={open}>
+    <>
+      <Modal onClose={handleClose} open={open} className="modal-admin">
         <Box sx={style}>
-          <Typography id="modal-modal-title">
+          <Typography sx={{ color: "rgb(23, 23, 95)", boxShadow: "white 4px" }}>
             Добавить новую категорию
           </Typography>
           <TextField
@@ -42,10 +42,12 @@ const AddCategory = (props) => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
-          <Button onClick={handleClick}>Добавить</Button>
+          <Button className="btn red" onClick={handleClick}>
+            Добавить
+          </Button>
         </Box>
       </Modal>
-    </div>
+    </>
   );
 };
 

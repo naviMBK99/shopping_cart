@@ -35,51 +35,89 @@ const AddProduct = () => {
     // !2 !4
     <>
       <div className="wrapper">
-        <h1>add product</h1>
-        <div
-          style={{
-            display: "flex",
-            width: "600px",
-            flexDirection: "column",
-          }}
-        >
-          <input
-            type="text"
-            name="name"
-            value={product.name}
-            onChange={handleAddProduct}
-            placeholder="name"
-          />
-          <input
-            type="text"
-            name="description"
-            value={product.description}
-            onChange={handleAddProduct}
-            placeholder="description"
-          />
-          <input
-            type="text"
-            name="price"
-            value={product.price}
-            onChange={handleAddProduct}
-            placeholder="price"
-          />
-          <input
-            type="text"
-            name="image"
-            value={product.image}
-            onChange={handleAddProduct}
-            placeholder="image"
-          />
-          <input
-            type="text"
-            name="type"
-            value={product.type}
-            onChange={handleAddProduct}
-            placeholder="type"
-          />
+        <div className="cont-add-todo">
+          <h1 className="add-h1">add product</h1>
+          <div className="inp-container">
+            <input
+              className="inp"
+              type="text"
+              name="name"
+              value={product.name}
+              onChange={handleAddProduct}
+              placeholder="name"
+              style={{
+                color: "#57243A",
+                borderColor: "black",
+                fontSize: "18px ",
+                fontFamily: "monospace;",
+                fontWeight: "600",
+              }}
+            />
+            <input
+              className="inp"
+              type="text"
+              name="description"
+              value={product.description}
+              onChange={handleAddProduct}
+              placeholder="description"
+              style={{
+                color: "#57243A",
+                borderColor: "black",
+                fontSize: "18px ",
+                fontFamily: "monospace;",
+                fontWeight: "600",
+              }}
+            />
+            <input
+              className="inp"
+              type="text"
+              name="price"
+              value={product.price}
+              onChange={handleAddProduct}
+              placeholder="price"
+              style={{
+                color: "#57243A",
+                borderColor: "black",
+                fontSize: "18px ",
+                fontFamily: "monospace;",
+                fontWeight: "600",
+              }}
+            />
+            <input
+              className="inp"
+              type="text"
+              name="image"
+              value={product.image}
+              onChange={handleAddProduct}
+              placeholder="image"
+              style={{
+                color: "#57243A",
+                borderColor: "black",
+                fontSize: "18px ",
+                fontFamily: "monospace;",
+                fontWeight: "600",
+              }}
+            />
+            <input
+              className="inp"
+              type="text"
+              name="type"
+              value={product.type}
+              onChange={handleAddProduct}
+              placeholder="type"
+              style={{
+                color: "#57243A",
+                borderColor: "black",
+                fontSize: "18px ",
+                fontFamily: "monospace;",
+                fontWeight: "600",
+              }}
+            />
 
-          <button onClick={saveProduct}>ADD PRODUCT</button>
+            <button className="btn red" onClick={saveProduct}>
+              ADD PRODUCT
+            </button>
+          </div>
         </div>
       </div>
     </>
