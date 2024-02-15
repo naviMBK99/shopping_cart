@@ -33,54 +33,56 @@ const AddProduct = () => {
 
   return (
     // !2 !4
-    <div>
-      <h1>add product</h1>
-      <div
-        style={{
-          display: "flex",
-          width: "600px",
-          flexDirection: "column",
-        }}
-      >
-        <input
-          type="text"
-          name="name"
-          value={product.name}
-          onChange={handleAddProduct}
-          placeholder="name"
-        />
-        <input
-          type="text"
-          name="description"
-          value={product.description}
-          onChange={handleAddProduct}
-          placeholder="description"
-        />
-        <input
-          type="text"
-          name="price"
-          value={product.price}
-          onChange={handleAddProduct}
-          placeholder="price"
-        />
-        <input
-          type="text"
-          name="image"
-          value={product.image}
-          onChange={handleAddProduct}
-          placeholder="image"
-        />
-        <input
-          type="text"
-          name="type"
-          value={product.type}
-          onChange={handleAddProduct}
-          placeholder="type"
-        />
+    <>
+      <div className="wrapper">
+        <h1>add product</h1>
+        <div
+          style={{
+            display: "flex",
+            width: "600px",
+            flexDirection: "column",
+          }}
+        >
+          <input
+            type="text"
+            name="name"
+            value={product.name}
+            onChange={handleAddProduct}
+            placeholder="name"
+          />
+          <input
+            type="text"
+            name="description"
+            value={product.description}
+            onChange={handleAddProduct}
+            placeholder="description"
+          />
+          <input
+            type="text"
+            name="price"
+            value={product.price}
+            onChange={handleAddProduct}
+            placeholder="price"
+          />
+          <input
+            type="text"
+            name="image"
+            value={product.image}
+            onChange={handleAddProduct}
+            placeholder="image"
+          />
+          <input
+            type="text"
+            name="type"
+            value={product.type}
+            onChange={handleAddProduct}
+            placeholder="type"
+          />
 
-        <button onClick={saveProduct}>ADD PRODUCT</button>
+          <button onClick={saveProduct}>ADD PRODUCT</button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

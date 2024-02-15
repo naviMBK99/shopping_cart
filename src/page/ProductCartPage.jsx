@@ -1,7 +1,12 @@
 import React from "react";
+import ProductCard from "../components/ProductCart";
 
 const ProductCartPage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <ProductCard />
+    </div>
+  );
 };
 
 export default ProductCartPage;

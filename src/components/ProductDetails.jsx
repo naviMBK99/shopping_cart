@@ -1,8 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import { useNavigate, useParams } from "react-router";
+import { productContext } from "../context/ProductContextProvider";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
-  const { getOnProduct, oneProduct } = useContext();
+  const { getOnProduct, oneProduct } = useContext(productContext); // Передача контекста
+
   const { id } = useParams(); //тут получаем с помощю хука id
   const navigate = useNavigate();
   useEffect(() => {
@@ -11,22 +13,24 @@ const ProductDetails = () => {
   console.log(oneProduct, "oneProduct888"); //в нем лежит наша data и null
   return (
     <>
-      <h2>details</h2>
+      <div className="wrapper">
+        <h2>details</h2>
 
-      <div className="container-2">
-        {oneProduct ? (
-          <div className="card">
-            <img className="img-cart" src={oneProduct.image} alt="" />
-            <div className="text">
-              <h5 className="name">{oneProduct.name}</h5>
-              <p className="description">{oneProduct.description}</p>
-              <p className="price">{oneProduct.price}</p>
+        <div className="container-2">
+          {oneProduct ? (
+            <div className="card">
+              <img className="img-cart" src={oneProduct.image} alt="" />
+              <div className="text">
+                <h5 className="name">{oneProduct.name}</h5>
+                <p className="description">{oneProduct.description}</p>
+                <p className="price">{oneProduct.price}</p>
+              </div>
+              <button className="btn btn-details" onClick={() => navigate(-1)}>
+                назад
+              </button>
             </div>
-            <button className="btn btn-details" onClick={() => navigate(-1)}>
-              назад
-            </button>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </div>
     </>
   );
