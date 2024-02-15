@@ -1,3 +1,105 @@
-.App-header {
-  background-color: aqua;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  width: 1000px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.face {
+  transition: 0.4s;
+  border: solid 1px #333;
+  width: 305px;
+  height: 320px;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.8);
+}
+
+.face1 {
+  position: relative;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+  border: solid 3px #333;
+  width: 300px;
+  height: 300px;
+}
+
+.face.face1 .content a {
+  transition: 0.5s;
+}
+.face.face2 {
+  position: relative;
+  background: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 28px 1px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+  height: 360px;
+}
+.card:hover .face.face2 {
+  transform: translateY(0);
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* width: 1200px; */
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 1200px;
+  flex-wrap: wrap;
+  background-color: #232323;
+  height: 90px;
+  margin: 0 auto;
+}
+p {
+  color: #232323;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.icon {
+  color: #232323;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  margin: 5px;
+  background: none;
+}
+.icons-position {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+.text-cart {
+  margin-top: 90px;
+  padding: 15px;
+}
+
+.pagination {
+  margin: 0 auto;
 }
