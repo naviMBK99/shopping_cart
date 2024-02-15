@@ -1,4 +1,157 @@
 {
-  "tech": [],
+  "product": [
+    {
+      "name": " Poco C40 3/32GB Power Black",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/01.jpg",
+      "type": "Mobil",
+      "id": 2
+    },
+    {
+      "name": "Redmi Note 12 Pro 6/128GB Graphite Gray",
+      "description": "",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/redmi_note_12pro_4g_1.jpg",
+      "type": "Mobil",
+      "id": 3
+    },
+    {
+      "name": "Poco X5 Pro 5G 8/256GB EU Blue",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/11112.jpg",
+      "type": "Mobil",
+      "id": 4
+    },
+    {
+      "name": "Poco X6 5G 12/256GB EU Blue",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/Poco_X6_5G_Blue.jpg",
+      "type": "Mobil",
+      "id": 5
+    },
+    {
+      "name": "Poco M6 Pro 4G 12/512GB EU Black",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/843eaf7162cd690a9a823492510b4a26400x40085.png",
+      "type": "Mobil",
+      "id": 6
+    },
+    {
+      "name": "Redmi Pad 4/128GB Moonlight Silver",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/redmi_pad.jpg",
+      "type": "Pad",
+      "id": 7
+    },
+    {
+      "name": "Xiaomi Mi Pad 6 8/128GB Mist Blue",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/f3ccdd27d2000e3f9255a7e3e2c48800_070423223734.jpeg",
+      "type": "Pad",
+      "id": 8
+    },
+    {
+      "name": "Xiaomi Pad 6 6/128GB Gravity Gray",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/thumb_763540_default_big.jpg",
+      "type": "Pad",
+      "id": 9
+    },
+    {
+      "name": "Беспроводные наушники Xiaomi Redmi Buds 3 Lite (черный)",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/images/e78dccec-d7f9-4ac6-8615-8c92694b9d67.jpg",
+      "type": "Earphones",
+      "id": 10
+    },
+    {
+      "name": "Беспроводные наушники Xiaomi Redmi Buds 3 Pro (серый)",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/pms_1622000663.6718363.jpg",
+      "type": "Earphones",
+      "id": 11
+    },
+    {
+      "name": "Беспроводные наушники Xiaomi Mi True Wireless Earphones Air 2 SE",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/%D0%BF%D0%B4%D1%89.png",
+      "type": "Earphones",
+      "id": 12
+    },
+    {
+      "name": "Видеокамера Xiaovv Outdoor Camera Pro (белый)",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/ava_videocamera_xiaovv_outdoor_camera_pro_xvv_6120g_b10_2-800x800-1-600x600.jpg",
+      "type": "Camera",
+      "id": 13
+    },
+    {
+      "name": "Умные часы Xiaomi Redmi Watch 2 Lite EU (синий)",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/0254f1c6b39a6f2987a09f37c9fbd66c.jpg",
+      "type": "Smart Watch",
+      "id": 14
+    },
+    {
+      "name": "Умные часы Amazfit GTS 2 Smart Watch EU (золото)",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/gts_2_-_gold-jpeg.jpg",
+      "type": "Smart Watch",
+      "id": 15
+    },
+    {
+      "name": "Умные часы Amazfit GTS 3 Smart Watch (черный)",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/gts_3-_%D1%87%D1%91%D1%80%D0%BD%D1%8B%D0%B9.jpg",
+      "type": "Smart Watch",
+      "id": 16
+    },
+    {
+      "name": "Умные часы Amazfit GTR 3 PRO Smart Watch (коричневый)",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/madrid-01-front_brown_result.jpg",
+      "type": "Smart Watch",
+      "id": 17
+    },
+    {
+      "name": "Умные часы Amazfit GTS 2 Smart Watch EU (черный)",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/bd7a4841_015f_11eb_811f_2cfdsdaa1e1.jpg",
+      "type": "Smart Watch",
+      "id": 18
+    },
+    {
+      "name": "Беспроводная мышь Xiaomi Mi Portable Mouse 2 (черный) EU",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/images/6e157473-7274-43b6-978b-96f1b1bec905.jpg",
+      "type": "Mouse",
+      "id": 19
+    },
+    {
+      "name": "Беспроводная мышь Xiaomi Mi Elegant Mouse Metallic Edition белая",
+      "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
+      "price": "125000",
+      "image": "https://xiaomi.kg/media/products/mi-elegant-mouse-1_7NwWqaW.jpg",
+      "type": "Mouse",
+      "id": 20
+    }
+  ],
   "categories": []
 }
