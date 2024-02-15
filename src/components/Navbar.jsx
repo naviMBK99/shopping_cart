@@ -21,7 +21,7 @@ const Navbar = () => {
     <div className="wrapper">
       <div className="navbar">
         <NavLink
-          to={"/home"}
+          to={"/"}
           style={{
             color: "#FFFFFF",
             textDecoration: "none",
@@ -34,21 +34,7 @@ const Navbar = () => {
             alt=""
           />
         </NavLink>
-<<<<<<< HEAD
-        {/* <NavLink
-          to={"/add"}
-          style={{
-            color: "#FFFFFF",
-            textDecoration: "none",
-            fontWeight: "900",
-            fontSize: "22px",
-          }}
-        >
-          Add
-        </NavLink> */}
-=======
 
->>>>>>> 389d880332eb95aea63ca0eee04da044e9a7757e
         <NavLink
           to={"/product"}
           style={{
