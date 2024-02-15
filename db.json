@@ -1,14 +1,6 @@
 {
   "product": [
     {
-      "name": "Redmi Note 12 8/128GB Mint Green",
-      "description": "Все модели Redmi Note 12 оснащены впечатляющим и привлекательным OLED-дисплеем.",
-      "price": "125000",
-      "image": "https://xiaomi.kg/media/products/61q3mlYPxUL._AC_SL1000__y261HGk.jpg",
-      "type": "Mobil",
-      "id": 1
-    },
-    {
       "name": " Poco C40 3/32GB Power Black",
       "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
       "price": "125000",
@@ -108,7 +100,6 @@
       "name": "Умные часы Xiaomi Redmi Watch 2 Lite EU (синий)",
       "description": "Большой 6,71-дюймовый дисплей Для более широкого угла обзора",
       "price": "125000",
-
       "image": "https://xiaomi.kg/media/products/0254f1c6b39a6f2987a09f37c9fbd66c.jpg",
       "type": "Smart Watch",
       "id": 14

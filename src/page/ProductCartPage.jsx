@@ -1,10 +1,10 @@
 import React from "react";
-import ProductCard from "../components/ProductCart";
+import ProductCart from "../components/ProductCart";
 
 const ProductCartPage = () => {
   return (
     <div>
-      <ProductCard />
+      <ProductCart />
     </div>
   );
 };

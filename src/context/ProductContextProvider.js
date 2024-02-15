@@ -1,12 +1,13 @@
 import axios from "axios";
 import { createContext, useContext, useReducer } from "react";
-import { API } from "../helpers/const";
+import { API, API2 } from "../helpers/const";
+
 //создаем контекст
 export const productContext = createContext();
 
 export const useProduct = () => useContext(productContext);
 //создаем первоначальный состояние
-const INIT_STATE = { products: [], oneProduct: null };
+const INIT_STATE = { products: [], oneProduct: null, categories: [] };
 
 //создаем reduсer а редюсер в себе принимает state и action внутри создаем -switch case ,action перебирает наши case
 const reduсer = (state, action) => {
@@ -15,6 +16,8 @@ const reduсer = (state, action) => {
       return { ...state, products: action.payload };
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
+    case "GET_CATEGORIES":
+      return { ...state, categories: action.payload };
     default:
       return state;
   }
@@ -59,6 +62,20 @@ const ProductContextProvider = ({ children }) => {
     await axios.patch(`${API}/${newProduct.id}`, newProduct);
     getProducts(); // Получаем обновленный список продуктов после редактирования
   };
+
+  //* GET CATEGORIES
+  const getCategories = async () => {
+    const { data } = await axios(API2);
+    dispatch({
+      type: "GET_CATEGORIES",
+      payload: data,
+    });
+  };
+  //* CREATE CATEGORY
+  const createCategory = async (newCategory) => {
+    await axios.post(API2, newCategory);
+    getCategories();
+  };
   //!1 здесь мы экспортируем наши функции в children,addProduct мы отправляем в addProduct.jsx
   const values = {
     addProduct,
@@ -68,14 +85,13 @@ const ProductContextProvider = ({ children }) => {
     oneProduct: state.oneProduct,
     deleteProduct,
     saveEditedProduct,
+    createCategory,
+    getCategories,
+    categories: state.categories,
   };
 
   return (
-    <>
-      <productContext.Provider value={values}>
-        {children}
-      </productContext.Provider>
-    </>
+    <productContext.Provider value={values}>{children}</productContext.Provider>
   );
 };
 //експортируем наш компонент
