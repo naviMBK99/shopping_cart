@@ -34,17 +34,7 @@ const Navbar = () => {
             alt=""
           />
         </NavLink>
-        <NavLink
-          to={"/add"}
-          style={{
-            color: "#FFFFFF",
-            textDecoration: "none",
-            fontWeight: "900",
-            fontSize: "22px",
-          }}
-        >
-          Add
-        </NavLink>
+
         <NavLink
           to={"/product"}
           style={{
@@ -63,6 +53,17 @@ const Navbar = () => {
           onChange={(e) => setSearh(e.target.value)}
           placeholder="searh"
         />
+        <NavLink
+          to={"/admin"}
+          style={{
+            color: "#FFFFFF",
+            textDecoration: "none",
+            fontWeight: "1200",
+            fontSize: "32px",
+          }}
+        >
+          <ion-icon name="person-circle-outline"></ion-icon>
+        </NavLink>
       </div>
     </div>
   );
