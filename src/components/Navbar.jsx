@@ -34,7 +34,7 @@ const Navbar = () => {
             alt=""
           />
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to={"/add"}
           style={{
             color: "#FFFFFF",
@@ -44,7 +44,7 @@ const Navbar = () => {
           }}
         >
           Add
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to={"/product"}
           style={{
