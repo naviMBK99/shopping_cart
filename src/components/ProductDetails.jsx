@@ -14,20 +14,33 @@ const ProductDetails = () => {
   return (
     <>
       <div className="wrapper">
-        <h2>details</h2>
+        <h2 className="h1-details">details</h2>
 
         <div className="container-2">
           {oneProduct ? (
-            <div className="card">
-              <img className="img-cart" src={oneProduct.image} alt="" />
-              <div className="text">
-                <h5 className="name">{oneProduct.name}</h5>
-                <p className="description">{oneProduct.description}</p>
-                <p className="price">{oneProduct.price}</p>
+            <div className="card-details">
+              <div>
+                <img
+                  className="img-cart-details"
+                  src={oneProduct.image}
+                  alt=""
+                />
               </div>
-              <button className="btn btn-details" onClick={() => navigate(-1)}>
-                назад
-              </button>
+              <div>
+                <div className="text-details">
+                  <h5 className="name-details">{oneProduct.name}</h5>
+                  <p className="description-details">
+                    {oneProduct.description}
+                  </p>
+                  <p className="price-details">{oneProduct.price}$</p>
+                </div>
+                <button
+                  className="btn red batton-details"
+                  onClick={() => navigate(-1)}
+                >
+                  назад
+                </button>
+              </div>
             </div>
           ) : null}
         </div>

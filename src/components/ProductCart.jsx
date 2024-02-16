@@ -19,40 +19,44 @@ const ProductCart = () => {
   }, [searchParams]);
   return (
     <>
-      {/* searh */}
-      <h1>searh</h1>
-      <input
-        type="text"
-        placeholder="searh"
-        value={searh}
-        onChange={(e) => setSearh(e.target.value)}
-      />
-      {/* searh */}
-      <div className="container">
-        {products.map((elem, index) => (
-          <div className="card" key={index}>
-            <img className="img-cart" src={elem.image} alt="" />
-            <div className="text">
-              <h5 className="name">{elem.name}</h5>
-              <p className="description">{elem.description}</p>
-              <p className="price">{elem.price}$</p>
-              <div className="button">
-                <button
-                  onClick={() => deleteProduct(elem.id)}
-                  className="btn add"
-                >
-                  DELETE
-                </button>
-                <Link to={`edit/${elem.id}`}>
-                  <button className="btn edit">EDIT</button>
-                </Link>
-                <Link to={`details/${elem.id}`}>
-                  <button className="btn details">DETAILS</button>
-                </Link>
+      <div className="wrapper">
+        <div class="container">
+          {products.map((elem, index) => (
+            <div className="card" key={index}>
+              <div className="face face1">
+                <div className="content-img">
+                  <img width="305px" height="280px" src={elem.image} alt="" />
+                </div>
+              </div>
+              <div className="face face2">
+                <div className="content">
+                  <div className="text-cart">
+                    <p className="name">{elem.name}</p>
+                    <p>{elem.description}</p>
+                    <p className="price">{elem.price}$</p>
+                    <div className="icons-position">
+                      <Link to={`details/${elem.id}`}>
+                        <button className="icon details">
+                          <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+                      </Link>
+                      <button
+                        onClick={() => deleteProduct(elem.id)}
+                        className="icon delete"
+                      >
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </button>
+
+                      <button className="icon like">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );
