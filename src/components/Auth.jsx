@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-
-import { useNavigate } from "react-router-dom";
-
 import axios from "axios";
+import React, { useState } from "react";
 import { API_auth } from "../helpers/const";
+import { useNavigate } from "react-router-dom";
 
 const EyeIcon = ({ style, onClick }) => (
   <svg
@@ -39,7 +37,7 @@ const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(""); // Состояние для отслеживания ошибки
   const navigate = useNavigate();
-
+  //! AUTH
   const handleLogin = async () => {
     try {
       const response = await axios.post(`${API_auth}/login/`, {
@@ -52,19 +50,13 @@ const Auth = () => {
         const refreshToken = response.data.refresh;
         localStorage.setItem("access_token", accessToken);
         localStorage.setItem("refresh_token", refreshToken);
-
-        navigate("/mainPage");
+        navigate("/");
       }
     } catch (error) {
       console.error("Неверный логин или пароль:", error);
       setError("Неверный логин или пароль");
     }
   };
-
-  const handleRegistration = () => {
-    navigate("/register");
-  };
-
   const styles = {
     input: {
       width: "220px",
@@ -145,22 +137,6 @@ const Auth = () => {
             </div>
             <button style={styles.button} onClick={handleLogin}>
               Войти
-            </button>
-            <button
-              style={{
-                color: "black",
-                width: "270px",
-                height: "40px",
-                borderRadius: "7px",
-                border: "none",
-                backgroundColor: "white",
-                fontSize: "16px",
-                marginLeft: "-30px",
-                marginTop: "20px",
-              }}
-              onClick={handleRegistration}
-            >
-              У меня еще нет аккаунта
             </button>
           </div>
         </div>

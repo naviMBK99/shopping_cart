@@ -54,7 +54,7 @@ const Navbar = () => {
           placeholder="searh"
         />
         <NavLink
-          to={"/admin"}
+          to={"/register"}
           style={{
             color: "#FFFFFF",
             textDecoration: "none",

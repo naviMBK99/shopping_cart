@@ -7,6 +7,7 @@ import HomePage from "../page/HomePage";
 import { Route, Routes } from "react-router-dom";
 import Auth from "../components/Auth";
 import Register from "../components/Register";
+import Confirmation from "../components/Confirmation";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -17,6 +18,7 @@ const MainRoutes = () => {
     { id: 5, link: "/admin", element: <AdminPage /> },
     { id: 6, link: "/auth", element: <Auth /> },
     { id: 7, link: "/register", element: <Register /> },
+    { id: 8, link: "/confirm", element: <Confirmation /> },
   ];
   return (
     <div>

@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 import axios from "axios";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { API_auth } from "../helpers/const";
 
 const Confirmation = () => {
@@ -27,7 +27,7 @@ const Confirmation = () => {
 
       if (response.status === 200) {
         console.log("Код подтвержден успешно!");
-        navigate("/");
+        navigate("/auth");
       }
     } catch (error) {
       console.error("Ошибка:", error);
@@ -156,17 +156,6 @@ const Confirmation = () => {
           </Form>
         )}
       </Formik>
-      <p
-        style={{
-          marginTop: "20px",
-          color: "#292929",
-          fontSize: "15px",
-          cursor: "pointer",
-          textAlign: "center",
-        }}
-      >
-        Выслать код повторно
-      </p>
     </div>
   );
 };
