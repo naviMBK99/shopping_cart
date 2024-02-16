@@ -1,15 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useProduct } from "../context/ProductContextProvider";
 import { Link } from "react-router-dom";
+import PaginationAllCard from "./PaginationAllCard";
 
 const ProductCart = () => {
-  const { products, deleteProduct } = useProduct();
+  const { products, deleteProduct, getProducts } = useProduct();
   console.log(products);
+
+  const [page, setPage] = useState(1);
+  const itemPerPage = 6;
+  const count = Math.ceil(products.length / itemPerPage);
+  console.log(count);
+  const currentData = () => {
+    const begin = (page - 1) * itemPerPage;
+    const end = begin + itemPerPage;
+    return products.slice(begin, end);
+  };
+  const handleChange = (e, value) => {
+    setPage(value);
+    console.log(value);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <>
       <div className="wrapper">
         <div class="container">
-          {products.map((elem, index) => (
+          {currentData().map((elem, index) => (
             <div className="card" key={index}>
               <div className="face face1">
                 <div className="content-img">
@@ -44,6 +64,11 @@ const ProductCart = () => {
               </div>
             </div>
           ))}
+          <PaginationAllCard
+            count={count}
+            page={page}
+            handleChange={handleChange}
+          />
         </div>
       </div>
     </>
