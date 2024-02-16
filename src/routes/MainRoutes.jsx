@@ -4,6 +4,7 @@ import ProductCartPage from "../page/ProductCartPage";
 import EditProductPage from "../page/EditProductPage";
 import AdminPage from "../page/AdminPage";
 import HomePage from "../page/HomePage";
+
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import AuthPage from "../page/AuthPage";
@@ -11,6 +12,12 @@ import { useAuth } from "../context/AuthContextProvider";
 import { ADMIN } from "../helpers/const";
 import Auth from "../components/Auth";
 import Confirmation from "../components/Confirmation";
+
+import Cart from "../components/cart/Cart";
+
+
+
+import FavoritePage from "../page/FavoritePage";
 
 const MainRoutes = () => {
   const { user } = useAuth();
@@ -25,6 +32,8 @@ const MainRoutes = () => {
   const PRIVATE_ROUTES = [
     { id: 5, link: "/product/edit/:id", element: <EditProductPage /> },
     { id: 6, link: "/admin", element: <AdminPage /> },
+    { id: 7, link: "/cart", element: <Cart /> },
+    { id: 8, link: "/favorites", element: <FavoritePage /> },
   ];
   return (
     <div>

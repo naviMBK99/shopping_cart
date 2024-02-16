@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
-import SearchIcon from "@mui/icons-material/Search";
+
 import { useAuth } from "../context/AuthContextProvider";
-import { useProduct } from "../context/ProductContextProvider";
+=======
+import { useProduct } from "./context/ProductContextProvider";
+import SearchIcon from "@mui/icons-material/Search";
+import { FaCartShopping } from "react-icons/fa6";
+
 
 const Navbar = () => {
   const { getProducts, products } = useProduct();
@@ -68,9 +72,21 @@ const Navbar = () => {
           />
           <SearchIcon className="search-icon" />
         </div>
+
         {/* Изменяем div на кнопку и добавляем обработчик клика */}
         <button
           onClick={handleLoginClick}
+
+
+        <NavLink to={"/cart"}>
+          <FaCartShopping />
+        </NavLink>
+        <NavLink to={"/favorites"}>
+          <ion-icon name="bookmarks-outline"></ion-icon>
+        </NavLink>
+        <NavLink
+          to={"/admin"}
+
           style={{
             backgroundColor: "transparent",
             border: "none",

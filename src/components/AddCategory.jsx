@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useProduct } from "../context/ProductContextProvider";
+import { useProduct } from "./context/ProductContextProvider";
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 
 const AddCategory = (props) => {
