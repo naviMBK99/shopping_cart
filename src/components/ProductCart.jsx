@@ -5,7 +5,7 @@ import { useProduct } from "./context/ProductContextProvider";
 import { Button } from "@mui/base";
 import { useCart } from "./context/CartContextProvider";
 import { useFav } from "./context/FavoriteContextProvider";
-
+const { products, deleteProduct } = useProduct();
 const ProductCart = (props) => {
   const { getPost, addPostToFavouriters, checkPostInFav } = useFav();
   const { getProducts, products, deleteProduct } = useProduct();
@@ -25,7 +25,7 @@ const ProductCart = (props) => {
   return (
     <>
       <div className="wrapper">
-        <div className="container">
+        <div class="container">
           {products.map((elem, index) => (
             <div className="card" key={index}>
               <div className="face face1">
@@ -70,6 +70,11 @@ const ProductCart = (props) => {
               </div>
             </div>
           ))}
+          <PaginationAllCard
+            count={count}
+            page={page}
+            handleChange={handleChange}
+          />
         </div>
       </div>
     </>

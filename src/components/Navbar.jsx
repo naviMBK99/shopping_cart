@@ -6,7 +6,7 @@ import { FaCartShopping } from "react-icons/fa6";
 
 const Navbar = () => {
   const { getProducts, products } = useProduct();
-
+  //!searh-----
   const [searchParams, setSearchParams] = useSearchParams();
   const [searh, setSearh] = useState(searchParams.get("q") || "");
 
@@ -18,7 +18,7 @@ const Navbar = () => {
   useEffect(() => {
     getProducts();
   }, [searchParams]);
-
+  //!searh-----finish
   return (
     <div className="wrapper">
       <div className="navbar">
