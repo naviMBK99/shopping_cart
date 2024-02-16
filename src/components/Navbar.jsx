@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
 import { useProduct } from "../context/ProductContextProvider";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Navbar = () => {
   const { getProducts, products } = useProduct();
-
+  //!searh-----
   const [searchParams, setSearchParams] = useSearchParams();
   const [searh, setSearh] = useState(searchParams.get("q") || "");
 
@@ -16,7 +17,7 @@ const Navbar = () => {
   useEffect(() => {
     getProducts();
   }, [searchParams]);
-
+  //!searh-----finish
   return (
     <div className="wrapper">
       <div className="navbar">
@@ -46,13 +47,17 @@ const Navbar = () => {
         >
           Product
         </NavLink>
-        <input
-          className="searh"
-          type="text"
-          value={searh}
-          onChange={(e) => setSearh(e.target.value)}
-          placeholder="searh"
-        />
+        <div className="s">
+          <input
+            className="searh"
+            type="text"
+            value={searh}
+            onChange={(e) => setSearh(e.target.value)}
+            placeholder="Searh..."
+          />
+          <SearchIcon className="search-icon" />
+        </div>
+
         <NavLink
           to={"/register"}
           style={{

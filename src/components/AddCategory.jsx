@@ -33,7 +33,7 @@ const AddCategory = (props) => {
     <>
       <Modal onClose={handleClose} open={open} className="modal-admin">
         <Box sx={style}>
-          <Typography sx={{ color: "rgb(23, 23, 95)", boxShadow: "white 4px" }}>
+          <Typography sx={{ color: "white", boxShadow: "white 4px" }}>
             Добавить новую категорию
           </Typography>
           <TextField
