@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
-import { useProduct } from "../context/ProductContextProvider";
+import { useProduct } from "./context/ProductContextProvider";
 import SearchIcon from "@mui/icons-material/Search";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Navbar = () => {
   const { getProducts, products } = useProduct();
@@ -53,11 +54,17 @@ const Navbar = () => {
             type="text"
             value={searh}
             onChange={(e) => setSearh(e.target.value)}
-            placeholder="Searh..."
+            placeholder="Search..."
           />
           <SearchIcon className="search-icon" />
         </div>
 
+        <NavLink to={"/cart"}>
+          <FaCartShopping />
+        </NavLink>
+        <NavLink to={"/favorites"}>
+          <ion-icon name="bookmarks-outline"></ion-icon>
+        </NavLink>
         <NavLink
           to={"/admin"}
           style={{

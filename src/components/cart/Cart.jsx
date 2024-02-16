@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useCart } from "../context/CartContextProvider";
+import { Button } from "@mui/base";
 
 const Cart = () => {
   const { cart, getCart, changeProductCount, deleteProductFromCart } =
@@ -14,30 +15,57 @@ const Cart = () => {
   };
 
   return (
-    <div style={{ maxWidth: 650, margin: "auto", padding: 16 }}>
+    <div
+      style={{
+        manWidth: "100%",
+        padding: 16,
+        display: "grid",
+        gridTemplateColumns: "repeat (7,1fr)",
+        gap: "100",
+      }}
+    >
       <table style={{ width: "100%" }}>
-        <thead>
-          <tr>
-            <th style={{ textAlign: "right" }}>Picture</th>
-            <th style={{ textAlign: "right" }}>Title</th>
-            <th style={{ textAlign: "right" }}>Category</th>
-            <th style={{ textAlign: "right" }}>Price</th>
-            <th style={{ textAlign: "right" }}>Count</th>
-            <th style={{ textAlign: "right" }}>SubPrice</th>
-            <th style={{ textAlign: "right" }}>-</th>
-          </tr>
-        </thead>
+        <div>
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              justifyContent: "space-around",
+              marginBottom: "40px",
+            }}
+          >
+            <div style={{ textAlign: "right" }}>Picture</div>
+            <div style={{ textAlign: "right" }}>Title</div>
+            <div style={{ textAlign: "right" }}>Category</div>
+            <div style={{ textAlign: "right" }}>Price</div>
+            <div style={{ textAlign: "right" }}>Count</div>
+            <div style={{ textAlign: "right" }}>SubPrice</div>
+            <div style={{ textAlign: "right" }}>-</div>
+          </div>
+        </div>
 
         <tbody>
           {cart.products.map((elem) => (
-            <tr key={elem.item.id}>
-              <td style={{ textAlign: "right" }}>
+            <div
+              key={elem.item.id}
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "stretch",
+                justifyContent: "space-between",
+                marginBottom: "30px",
+              }}
+            >
+              <div style={{ textAlign: "right" }}>
                 <img src={elem.item.image} alt="" width={70} />
-              </td>
-              <td style={{ textAlign: "right" }}>{elem.item.title}</td>
-              <td style={{ textAlign: "right" }}>{elem.item.category}</td>
-              <td style={{ textAlign: "right" }}>{elem.item.price}</td>
-              <td style={{ textAlign: "right" }}>
+              </div>
+              <div style={{ textAlign: "right" }}>{elem.item.name}</div>
+              <div style={{ textAlign: "right" }}>{elem.item.type}</div>
+              <div style={{ textAlign: "right" }}>{elem.item.price}</div>
+              <div style={{ textAlign: "right" }}>
                 <input
                   onChange={(e) => {
                     changeProductCount(elem.item.id, e.target.value);
@@ -47,18 +75,25 @@ const Cart = () => {
                   max={20}
                   defaultValue={elem.count}
                 />
-              </td>
-              <td style={{ textAlign: "right" }}>{elem.subPrice}</td>
-              <td style={{ textAlign: "right" }}>
+              </div>
+              <div style={{ textAlign: "right" }}>{elem.subPrice}</div>
+              <div style={{ textAlign: "right" }}>
                 <button onClick={() => deleteProductFromCart(elem.item.id)}>
                   DELETE
                 </button>
-              </td>
-            </tr>
+              </div>
+            </div>
           ))}
         </tbody>
       </table>
-      <button onClick={cartCliner}>BUY NOW FOR {cart.totalPrice}</button>
+      <Button
+        className="btn red"
+        style={{ width: "200px", height: "40px" }}
+        variant="contained"
+        onClick={cartCliner}
+      >
+        BUY NOW FOR {cart.totalPrice}
+      </Button>
     </div>
   );
 };

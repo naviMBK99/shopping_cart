@@ -54,12 +54,12 @@ const CartContextProvider = ({ children }) => {
     // получаем содержимое из хранилища под ключом cart
     let cart = getLocalStorage();
     // проверка на существование данных в хранилище под ключом cart
-    if (!cart) {
-      cart = {
-        products: [],
-        totalPrice: 0,
-      };
-    }
+    // if (!cart) {
+    //   cart = {
+    //     products: [],
+    //     totalPrice: 0,
+    //   };
+    // }
     // создаем обьект, который добавим в localStorage в массив cart.products
     let newProduct = {
       item: product,
@@ -80,6 +80,7 @@ const CartContextProvider = ({ children }) => {
       );
     }
     // пересчитываем totalPrice
+    console.log(cart.products);
     cart.totalPrice = calcTotalPrice(cart.products);
     // обновляем данные в localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -103,13 +104,14 @@ const CartContextProvider = ({ children }) => {
     let cart = getLocalStorage();
     // перебираем массив с продуктами из корзины, и у продукта, у которого id сопадает с тем id? что передали при вызове, перезаписываем count (кол-во) и subPrice
     cart.products = cart.products.map((elem) => {
+      console.log(elem);
       if (elem.item.id === id) {
         elem.count = count;
         elem.subPrice = calcSubPrice(elem);
+        cart.totalPrice = calcTotalPrice(cart.products);
       }
       return elem;
     });
-    cart.totalPrice = calcTotalPrice(cart.products);
     // обновляем localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
     // обновляем состояние

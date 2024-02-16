@@ -5,7 +5,9 @@ export const getLocalStorage = () => {
 };
 // функция для подсчета суммы всех товаров
 export const calcTotalPrice = (products) => {
-  const totalPrice = products.reduce((acc, curr) => acc + curr.subPrice, 0);
+  console.log(products);
+  const totalPrice = products.reduce((acc, curr) => acc + +curr.subPrice, 0);
+  console.log(typeof totalPrice);
   return totalPrice;
 };
 // функция для подсчета всех товаров в корзине

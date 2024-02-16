@@ -5,7 +5,10 @@ import AddProductPage from "../page/AddProductPage";
 import EditProductPage from "../page/EditProductPage";
 import AdminPage from "../page/AdminPage";
 import HomePage from "../page/HomePage";
+import Cart from "../components/cart/Cart";
 import { Route, Routes } from "react-router-dom";
+
+import FavoritePage from "../page/FavoritePage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -15,6 +18,8 @@ const MainRoutes = () => {
     { id: 4, link: "/add", element: <AddProductPage /> },
     { id: 5, link: "/product/edit/:id", element: <EditProductPage /> },
     { id: 6, link: "/admin", element: <AdminPage /> },
+    { id: 7, link: "/cart", element: <Cart /> },
+    { id: 8, link: "/favorites", element: <FavoritePage /> },
   ];
   return (
     <div>

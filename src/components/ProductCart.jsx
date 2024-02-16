@@ -2,9 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { Link, useSearchParams } from "react-router-dom";
 import { useProduct } from "./context/ProductContextProvider";
+import { Button } from "@mui/base";
+import { useCart } from "./context/CartContextProvider";
+import { useFav } from "./context/FavoriteContextProvider";
 
-const ProductCart = () => {
+const ProductCart = (props) => {
+  const { getPost, addPostToFavouriters, checkPostInFav } = useFav();
   const { getProducts, products, deleteProduct } = useProduct();
+  const { addProductToCart } = useCart();
   //!SEARH
   const [searchParams, setSearchParams] = useSearchParams();
   const [searh, setSearh] = useState(searchParams.get("q") || "");
@@ -20,7 +25,7 @@ const ProductCart = () => {
   return (
     <>
       <div className="wrapper">
-        <div class="container">
+        <div className="container">
           {products.map((elem, index) => (
             <div className="card" key={index}>
               <div className="face face1">
@@ -50,6 +55,15 @@ const ProductCart = () => {
                       <button className="icon like">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
+                      <Button
+                        onClick={() => addProductToCart(elem)}
+                        className="icon cart"
+                      >
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </Button>
+                      <Button onClick={() => addPostToFavouriters(elem)}>
+                        <ion-icon name="bookmark-outline"></ion-icon>
+                      </Button>
                     </div>
                   </div>
                 </div>

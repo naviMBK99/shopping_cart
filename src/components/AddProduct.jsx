@@ -113,11 +113,10 @@ const AddProduct = () => {
                 fontWeight: "600",
               }}
             />
-
-            <button className="btn red" onClick={saveProduct}>
-              ADD PRODUCT
-            </button>
           </div>
+          <button className="btn red" onClick={saveProduct}>
+            ADD PRODUCT
+          </button>
         </div>
       </div>
     </>
