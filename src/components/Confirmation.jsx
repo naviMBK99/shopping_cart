@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-
 import axios from "axios";
-
 import { useNavigate } from "react-router-dom";
 import { API_auth } from "../helpers/const";
 
@@ -27,7 +25,7 @@ const Confirmation = () => {
 
       if (response.status === 200) {
         console.log("Код подтвержден успешно!");
-        navigate("/auth");
+        navigate("/");
       }
     } catch (error) {
       console.error("Ошибка:", error);
@@ -43,7 +41,17 @@ const Confirmation = () => {
   });
 
   return (
-    <div style={{ marginTop: "210px" }}>
+    <div
+      style={{
+        marginTop: "100px",
+        marginRight: "500px",
+        marginLeft: "500px",
+        border: "1px solid lightgrey",
+        padding: "20px",
+        borderRadius: "5px",
+        boxShadow: "rgb(1,1,1,0.4)",
+      }}
+    >
       <p
         style={{ fontSize: "25px", margin: "0px", marginLeft: "5px" }}
         className="content__right-p"

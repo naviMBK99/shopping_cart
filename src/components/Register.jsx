@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
-import { Link } from "react-router-dom";
+
 import { useAuth } from "../context/AuthContextProvider";
-import { FaEye, FaEyeSlash, FaPhone } from "react-icons/fa"; // Импорт иконок
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const {
@@ -15,7 +15,7 @@ const Register = () => {
     getPasswordValidationMessage,
   } = useAuth();
 
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Состояние для отображения пароля подтверждения
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
     <div className="main__container">
@@ -85,8 +85,7 @@ const Register = () => {
                     }}
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}{" "}
-                    {/* Иконка для отображения/скрытия пароля */}
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </div>
                 </div>
               </div>

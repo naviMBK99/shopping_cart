@@ -4,21 +4,27 @@ import ProductCartPage from "../page/ProductCartPage";
 import EditProductPage from "../page/EditProductPage";
 import AdminPage from "../page/AdminPage";
 import HomePage from "../page/HomePage";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
+
+import AuthPage from "../page/AuthPage";
+import { useAuth } from "../context/AuthContextProvider";
+import { ADMIN } from "../helpers/const";
 import Auth from "../components/Auth";
-import Register from "../components/Register";
 import Confirmation from "../components/Confirmation";
 
 const MainRoutes = () => {
+  const { user } = useAuth();
   const PUBLIC_ROUTES = [
     { id: 1, link: "/", element: <HomePage /> },
     { id: 2, link: "/product/details/:id", element: <ProductDetailsPage /> },
     { id: 3, link: "/product", element: <ProductCartPage /> },
-    { id: 4, link: "/product/edit/:id", element: <EditProductPage /> },
-    { id: 5, link: "/admin", element: <AdminPage /> },
-    { id: 6, link: "/auth", element: <Auth /> },
-    { id: 7, link: "/register", element: <Register /> },
-    { id: 8, link: "/confirm", element: <Confirmation /> },
+    { id: 4, link: "/login", element: <AuthPage /> },
+    { id: 4, link: "/confirmation", element: <Confirmation /> },
+    { id: 4, link: "/auth", element: <Auth /> },
+  ];
+  const PRIVATE_ROUTES = [
+    { id: 5, link: "/product/edit/:id", element: <EditProductPage /> },
+    { id: 6, link: "/admin", element: <AdminPage /> },
   ];
   return (
     <div>
@@ -26,6 +32,17 @@ const MainRoutes = () => {
         {PUBLIC_ROUTES.map((elem) => (
           <Route path={elem.link} key={elem.id} element={elem.element} />
         ))}
+        {user
+          ? PRIVATE_ROUTES.map((elem) => (
+              <Route
+                key={elem.id}
+                path={elem.link}
+                element={
+                  user.email === ADMIN ? elem.element : <Navigate to="*" />
+                }
+              />
+            ))
+          : null}
       </Routes>
     </div>
   );

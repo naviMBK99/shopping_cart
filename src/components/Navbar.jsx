@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
-import { useProduct } from "../context/ProductContextProvider";
 import SearchIcon from "@mui/icons-material/Search";
+import { useAuth } from "../context/AuthContextProvider";
+import { useProduct } from "../context/ProductContextProvider";
 
 const Navbar = () => {
   const { getProducts, products } = useProduct();
+  const { user } = useAuth();
+
   //!searh-----
   const [searchParams, setSearchParams] = useSearchParams();
   const [searh, setSearh] = useState(searchParams.get("q") || "");
@@ -13,11 +16,19 @@ const Navbar = () => {
     setSearchParams({ q: searh });
   }, [searh]);
 
-  console.log(products); //лежит наша data в []
   useEffect(() => {
     getProducts();
   }, [searchParams]);
   //!searh-----finish
+
+  const handleLoginClick = () => {
+    if (user) {
+      alert(`Привет, ${user.name}`);
+    } else {
+      window.location.href = "/auth";
+    }
+  };
+
   return (
     <div className="wrapper">
       <div className="navbar">
@@ -53,22 +64,29 @@ const Navbar = () => {
             type="text"
             value={searh}
             onChange={(e) => setSearh(e.target.value)}
-            placeholder="Searh..."
+            placeholder="Search..."
           />
           <SearchIcon className="search-icon" />
         </div>
-
-        <NavLink
-          to={"/register"}
+        {/* Изменяем div на кнопку и добавляем обработчик клика */}
+        <button
+          onClick={handleLoginClick}
           style={{
-            color: "#FFFFFF",
-            textDecoration: "none",
-            fontWeight: "1200",
-            fontSize: "32px",
+            backgroundColor: "transparent",
+            border: "none",
+            cursor: "pointer",
           }}
         >
-          <ion-icon name="person-circle-outline"></ion-icon>
-        </NavLink>
+          <ion-icon
+            name="person-circle-outline"
+            style={{
+              color: "#FFFFFF",
+              textDecoration: "none",
+              fontWeight: "1200",
+              fontSize: "32px",
+            }}
+          ></ion-icon>
+        </button>
       </div>
     </div>
   );
