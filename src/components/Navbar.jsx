@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
-import { useProduct } from "../context/ProductContextProvider";
+import { useProduct } from "./context/ProductContextProvider";
 
 const Navbar = () => {
   const { getProducts, products } = useProduct();

@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { Link, useSearchParams } from "react-router-dom";
+import { useProduct } from "./context/ProductContextProvider";
 
-const ProductCard = () => {
-  const { getProducts, products, deleteProduct } = useContext();
+const ProductCart = () => {
+  const { getProducts, products, deleteProduct } = useProduct();
   //!SEARH
   const [searchParams, setSearchParams] = useSearchParams();
   const [searh, setSearh] = useState(searchParams.get("q") || "");
@@ -50,8 +51,8 @@ const ProductCard = () => {
                 </Link>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </>
   );
