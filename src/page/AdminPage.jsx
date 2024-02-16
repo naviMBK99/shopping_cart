@@ -9,11 +9,16 @@ const AdminPage = () => {
   const handleClose = () => setOpen(false);
   return (
     <div>
-      <Button onClick={handleOpen} variant="contained">
-        Add Category
-      </Button>
-      <AddProduct />
       <AddCategory open={open} handleClose={handleClose} />
+      <button
+        className="btn red"
+        id="btn-add-category-admin"
+        onClick={handleOpen}
+        variant="contained"
+      >
+        Add Category
+      </button>
+      <AddProduct />
     </div>
   );
 };

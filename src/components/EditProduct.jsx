@@ -38,55 +38,98 @@ const EditProduct = () => {
   return (
     <>
       <div className="wrapper">
-        <h1>EDIT</h1>
-        {productToEdit ? (
-          <div>
-            <input
-              type="text"
-              name="name"
-              value={productToEdit.name}
-              onChange={handleInpEditSave}
-              placeholder="name"
-            />
-            <input
-              type="text"
-              name="description"
-              value={productToEdit.description}
-              onChange={handleInpEditSave}
-              placeholder="description"
-            />
-            <input
-              type="text"
-              name="price"
-              value={productToEdit.price}
-              onChange={handleInpEditSave}
-              placeholder="price"
-            />
-            <input
-              type="text"
-              name="image"
-              value={productToEdit.image}
-              onChange={handleInpEditSave}
-              placeholder="image"
-            />
-            <input
-              type="text"
-              name="type"
-              value={productToEdit.type}
-              onChange={handleInpEditSave}
-              placeholder="type"
-            />
+        <div className="cont-edit-todo">
+          <h1 className="edit-h1">EDIT</h1>
+          {productToEdit ? (
+            <div className="inp-container">
+              <input
+                className="inp"
+                type="text"
+                name="name"
+                value={productToEdit.name}
+                onChange={handleInpEditSave}
+                placeholder="name"
+                style={{
+                  color: "#57243A",
+                  borderColor: "black",
+                  fontSize: "18px ",
+                  fontFamily: "monospace;",
+                  fontWeight: "600",
+                }}
+              />
+              <input
+                className="inp"
+                type="text"
+                name="description"
+                value={productToEdit.description}
+                onChange={handleInpEditSave}
+                placeholder="description"
+                style={{
+                  color: "#57243A",
+                  borderColor: "black",
+                  fontSize: "18px ",
+                  fontFamily: "monospace;",
+                  fontWeight: "600",
+                }}
+              />
+              <input
+                className="inp"
+                type="text"
+                name="price"
+                value={productToEdit.price}
+                onChange={handleInpEditSave}
+                placeholder="price"
+                style={{
+                  color: "#57243A",
+                  borderColor: "black",
+                  fontSize: "18px ",
+                  fontFamily: "monospace;",
+                  fontWeight: "600",
+                }}
+              />
+              <input
+                className="inp"
+                type="text"
+                name="image"
+                value={productToEdit.image}
+                onChange={handleInpEditSave}
+                placeholder="image"
+                style={{
+                  color: "#57243A",
+                  borderColor: "black",
+                  fontSize: "18px ",
+                  fontFamily: "monospace;",
+                  fontWeight: "600",
+                }}
+              />
+              <input
+                className="inp"
+                type="text"
+                name="type"
+                value={productToEdit.type}
+                onChange={handleInpEditSave}
+                placeholder="type"
+                style={{
+                  color: "#57243A",
+                  borderColor: "black",
+                  fontSize: "18px ",
+                  fontFamily: "monospace;",
+                  fontWeight: "600",
+                }}
+              />
 
-            <button
-              onClick={() => {
-                saveEditedProduct(productToEdit); // Передаем объект productToEdit для сохранения
-                navigate("/");
-              }}
-            >
-              SAVE EDITED PRODUCT
-            </button>
-          </div>
-        ) : null}
+              <button
+                className="btn red"
+                onClick={() => {
+                  saveEditedProduct(productToEdit); // Передаем объект productToEdit для сохранения
+                  navigate("/");
+                }}
+              >
+                SAVE EDIT
+              </button>
+            </div>
+          ) : null}
+        </div>
       </div>
     </>
   );
