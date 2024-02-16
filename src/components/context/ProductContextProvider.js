@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useReducer } from "react";
-import { API } from "../helpers/const";
+import { API } from "../../helpers/const";
 //создаем контекст
 export const productContext = createContext();
 

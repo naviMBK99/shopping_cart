@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { Link, useSearchParams } from "react-router-dom";
+import { useProduct } from "../components/context/ProductContextProvider";
+import { useCart } from "./context/CartContextProvider";
 
 const ProductCard = () => {
-  const { getProducts, products, deleteProduct } = useContext();
+  const { getProducts, products, deleteProduct } = useProduct();
+  const { addProductToCart, checkProductInCart } = useCart();
   //!SEARH
   const [searchParams, setSearchParams] = useSearchParams();
   const [searh, setSearh] = useState(searchParams.get("q") || "");
@@ -47,6 +50,20 @@ const ProductCard = () => {
                 </Link>
                 <Link to={`details/${elem.id}`}>
                   <button className="btn details">DETAILS</button>
+                </Link>
+                <Link>
+                  <button
+                    style={{
+                      backgroundColor: checkProductInCart(elem.id)
+                        ? "black"
+                        : "transparent",
+                      color: checkProductInCart(elem.id) ? "white" : "black",
+                      border: "none",
+                      padding: "8px 16px",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => addProductToCart(elem)}
+                  ></button>
                 </Link>
               </div>
             </div>
