@@ -1,19 +1,35 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { Link, useSearchParams } from "react-router-dom";
-import { useProduct } from "./context/ProductContextProvider";
 import { Button } from "@mui/base";
 import { useCart } from "./context/CartContextProvider";
 import { useFav } from "./context/FavoriteContextProvider";
-const { products, deleteProduct } = useProduct();
+import { useProduct } from "./context/ProductContextProvider";
+import PaginationAllCard from "./PaginationAllCard";
 const ProductCart = (props) => {
   const { getPost, addPostToFavouriters, checkPostInFav } = useFav();
   const { getProducts, products, deleteProduct } = useProduct();
   const { addProductToCart } = useCart();
+
   //!SEARH
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [searh, setSearh] = useState(searchParams.get("q") || "");
 
+  const [page, setPage] = useState(1);
+  const itemPerPage = 6;
+  const count = Math.ceil(products.length / itemPerPage);
+  console.log(count);
+
+  const currentData = () => {
+    const begin = (page - 1) * itemPerPage;
+    const end = begin + itemPerPage;
+    return products.slice(begin, end);
+  };
+  const handleChange = (e, value) => {
+    setPage(value);
+    console.log(value);
+  };
   useEffect(() => {
     setSearchParams({ q: searh });
   }, [searh]);
@@ -26,7 +42,7 @@ const ProductCart = (props) => {
     <>
       <div className="wrapper">
         <div class="container">
-          {products.map((elem, index) => (
+          {currentData().map((elem, index) => (
             <div className="card" key={index}>
               <div className="face face1">
                 <div className="content-img">
