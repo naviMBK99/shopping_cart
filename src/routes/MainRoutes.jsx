@@ -1,20 +1,29 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import EditProductPage from "../page/EditProductPage";
-import AddProductPage from "../page/AddProductPage";
-import NavbarPage from "../page/NavbarPage";
+import ProductDetailsPage from "../page/ProductDetailsPage";
 import ProductCartPage from "../page/ProductCartPage";
-import Cart from "../components/cart/Cart";
+import AddProductPage from "../page/AddProductPage";
+import EditProductPage from "../page/EditProductPage";
+import AdminPage from "../page/AdminPage";
+import HomePage from "../page/HomePage";
+import { Route, Routes } from "react-router-dom";
 
 const MainRoutes = () => {
+  const PUBLIC_ROUTES = [
+    { id: 1, link: "/", element: <HomePage /> },
+    { id: 2, link: "/product/details/:id", element: <ProductDetailsPage /> },
+    { id: 3, link: "/product", element: <ProductCartPage /> },
+    { id: 4, link: "/add", element: <AddProductPage /> },
+    { id: 5, link: "/product/edit/:id", element: <EditProductPage /> },
+    { id: 6, link: "/admin", element: <AdminPage /> },
+  ];
   return (
-    <Routes>
-      <Route path="/navbar" element={<NavbarPage />} />
-      <Route path="/products" element={<ProductCartPage />} />
-      <Route path="/add" element={<AddProductPage />} />
-      <Route path="/edit/:id" element={<EditProductPage />} />
-      <Route path="/cart" element={<Cart />} />
-    </Routes>
+    <div>
+      <Routes>
+        {PUBLIC_ROUTES.map((elem) => (
+          <Route path={elem.link} key={elem.id} element={elem.element} />
+        ))}
+      </Routes>
+    </div>
   );
 };
 

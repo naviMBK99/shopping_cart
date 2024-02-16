@@ -1,12 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { Link, useSearchParams } from "react-router-dom";
-import { useProduct } from "../components/context/ProductContextProvider";
-import { useCart } from "./context/CartContextProvider";
 
 const ProductCard = () => {
-  const { getProducts, products, deleteProduct } = useProduct();
-  const { addProductToCart, checkProductInCart } = useCart();
+  const { getProducts, products, deleteProduct } = useContext();
   //!SEARH
   const [searchParams, setSearchParams] = useSearchParams();
   const [searh, setSearh] = useState(searchParams.get("q") || "");
@@ -51,31 +48,13 @@ const ProductCard = () => {
                 <Link to={`details/${elem.id}`}>
                   <button className="btn details">DETAILS</button>
                 </Link>
-                <Link>
-                  <button
-                    style={{
-                      backgroundColor: checkProductInCart(elem.id)
-                        ? "black"
-                        : "transparent",
-                      color: checkProductInCart(elem.id) ? "white" : "black",
-                      border: "none",
-                      padding: "8px 16px",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => addProductToCart(elem)}
-                  ></button>
-                </Link>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );
 };
 
-export default ProductCard;
-//!pContext -это context который принимает значение
-//!getProducts(); вызываем useEffect
-//!создаем карточку
-//!с помощю products мы распологаем data в map и передаем
+export default ProductCart;

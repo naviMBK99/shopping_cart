@@ -1,24 +1,70 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaCartShopping } from "react-icons/fa6";
-import { useCart } from "./context/CartContextProvider";
+import React, { useEffect, useState } from "react";
+import { NavLink, useSearchParams } from "react-router-dom";
+import { useProduct } from "../context/ProductContextProvider";
 
 const Navbar = () => {
-  const { addProductToCart, getProductsCountInCart } = useCart();
-  const [badgeCount, setBadgeCount] = React.useState(0);
+  const { getProducts, products } = useProduct();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searh, setSearh] = useState(searchParams.get("q") || "");
+
   useEffect(() => {
-    setBadgeCount(getProductsCountInCart());
-  }, [addProductToCart]);
+    setSearchParams({ q: searh });
+  }, [searh]);
+
+  console.log(products); //лежит наша data в []
+  useEffect(() => {
+    getProducts();
+  }, [searchParams]);
+
   return (
-    <header className="App-header">
-      <h1>TECH SHOP</h1>
-      <Link to={"/"}>Home</Link>
-      <Link to={"/products"}>Products</Link>
-      <input type="text" placeholder="Search..." />
-      <Link to="/cart">
-        <FaCartShopping />
-      </Link>
-    </header>
+    <div className="wrapper">
+      <div className="navbar">
+        <NavLink
+          to={"/home"}
+          style={{
+            color: "#FFFFFF",
+            textDecoration: "none",
+            fontWeight: "900",
+            fontSize: "22px",
+          }}
+        >
+          <img
+            src="https://xiaomi.kg/afd712c84a85eae5e02a922a0e27fa20.svg"
+            alt=""
+          />
+        </NavLink>
+        <NavLink
+          to={"/add"}
+          style={{
+            color: "#FFFFFF",
+            textDecoration: "none",
+            fontWeight: "900",
+            fontSize: "22px",
+          }}
+        >
+          Add
+        </NavLink>
+        <NavLink
+          to={"/product"}
+          style={{
+            color: "#FFFFFF",
+            textDecoration: "none",
+            fontWeight: "900",
+            fontSize: "22px",
+          }}
+        >
+          Product
+        </NavLink>
+        <input
+          className="searh"
+          type="text"
+          value={searh}
+          onChange={(e) => setSearh(e.target.value)}
+          placeholder="searh"
+        />
+      </div>
+    </div>
   );
 };
 
