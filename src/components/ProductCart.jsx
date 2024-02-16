@@ -23,11 +23,6 @@ const ProductCart = () => {
                     <p>{elem.description}</p>
                     <p className="price">{elem.price}$</p>
                     <div className="icons-position">
-                      <Link to={`edit/${elem.id}`}>
-                        <button className="icon edit-icon">
-                          <ion-icon name="create-outline"></ion-icon>
-                        </button>
-                      </Link>
                       <Link to={`details/${elem.id}`}>
                         <button className="icon details">
                           <ion-icon name="eye-outline"></ion-icon>
