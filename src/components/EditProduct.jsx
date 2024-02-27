@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { productContext } from "../context/ProductContextProvider"; // Импорт контекста
+import { productContext } from "./context/ProductContextProvider"; // Импорт контекста
 
 const EditProduct = () => {
   const { saveEditedProduct, getOnProduct, oneProduct } =

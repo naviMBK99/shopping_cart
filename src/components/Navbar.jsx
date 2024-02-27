@@ -1,28 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
-import { useProduct } from "../context/ProductContextProvider";
+import { useAuth } from "../context/AuthContextProvider";
+import { useProduct } from "./context/ProductContextProvider";
 import SearchIcon from "@mui/icons-material/Search";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Navbar = () => {
-  const { getProducts, products } = useProduct();
-  //!searh-----
+  const { getProducts } = useProduct();
+  const { user } = useAuth();
+
+  //!search-----
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searh, setSearh] = useState(searchParams.get("q") || "");
+  const [search, setSearch] = useState(searchParams.get("q") || "");
 
   useEffect(() => {
-    setSearchParams({ q: searh });
-  }, [searh]);
+    setSearchParams({ q: search });
+  }, [search, setSearchParams]);
 
-  console.log(products); //лежит наша data в []
   useEffect(() => {
     getProducts();
-  }, [searchParams]);
-  //!searh-----finish
+  }, [searchParams, getProducts]);
+  //!search-----finish
+
+  const handleLoginClick = () => {
+    if (user) {
+      alert(`Привет, ${user.name}`);
+    } else {
+      window.location.href = "/auth";
+    }
+  };
+
   return (
     <div className="wrapper">
       <div className="navbar">
         <NavLink
-          to={"/home"}
+          to={"/"}
           style={{
             color: "#FFFFFF",
             textDecoration: "none",
@@ -49,25 +61,40 @@ const Navbar = () => {
         </NavLink>
         <div className="s">
           <input
-            className="searh"
+            className="search"
             type="text"
-            value={searh}
-            onChange={(e) => setSearh(e.target.value)}
-            placeholder="Searh..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search..."
           />
           <SearchIcon className="search-icon" />
         </div>
 
+        <button onClick={handleLoginClick}>
+          <NavLink to={"/cart"}>
+            <FaCartShopping />
+          </NavLink>
+        </button>
+        <NavLink to={"/favorites"}>
+          <ion-icon name="bookmarks-outline"></ion-icon>
+        </NavLink>
         <NavLink
           to={"/admin"}
           style={{
-            color: "#FFFFFF",
-            textDecoration: "none",
-            fontWeight: "1200",
-            fontSize: "32px",
+            backgroundColor: "transparent",
+            border: "none",
+            cursor: "pointer",
           }}
         >
-          <ion-icon name="person-circle-outline"></ion-icon>
+          <ion-icon
+            name="person-circle-outline"
+            style={{
+              color: "#FFFFFF",
+              textDecoration: "none",
+              fontWeight: "1200",
+              fontSize: "32px",
+            }}
+          ></ion-icon>
         </NavLink>
       </div>
     </div>

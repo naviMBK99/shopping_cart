@@ -1,16 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { useProduct } from "../context/ProductContextProvider";
-import { Link } from "react-router-dom";
-import PaginationAllCard from "./PaginationAllCard";
+import React, { useContext, useEffect, useState } from "react";
 
-const ProductCart = () => {
-  const { products, deleteProduct, getProducts } = useProduct();
-  console.log(products);
+import { Link, useSearchParams } from "react-router-dom";
+import { Button } from "@mui/base";
+import { useCart } from "./context/CartContextProvider";
+import { useFav } from "./context/FavoriteContextProvider";
+import { useProduct } from "./context/ProductContextProvider";
+import PaginationAllCard from "./PaginationAllCard";
+const ProductCart = (props) => {
+  const { getPost, addPostToFavouriters, checkPostInFav } = useFav();
+  const { getProducts, products, deleteProduct } = useProduct();
+  const { addProductToCart } = useCart();
+
+  //!SEARH
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searh, setSearh] = useState(searchParams.get("q") || "");
 
   const [page, setPage] = useState(1);
   const itemPerPage = 6;
   const count = Math.ceil(products.length / itemPerPage);
   console.log(count);
+
   const currentData = () => {
     const begin = (page - 1) * itemPerPage;
     const end = begin + itemPerPage;
@@ -20,11 +30,14 @@ const ProductCart = () => {
     setPage(value);
     console.log(value);
   };
+  useEffect(() => {
+    setSearchParams({ q: searh });
+  }, [searh]);
 
+  console.log(products); //лежит наша data в []
   useEffect(() => {
     getProducts();
-  }, []);
-
+  }, [searchParams]);
   return (
     <>
       <div className="wrapper">
@@ -58,6 +71,15 @@ const ProductCart = () => {
                       <button className="icon like">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
+                      <Button
+                        onClick={() => addProductToCart(elem)}
+                        className="icon cart"
+                      >
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </Button>
+                      <Button onClick={() => addPostToFavouriters(elem)}>
+                        <ion-icon name="bookmark-outline"></ion-icon>
+                      </Button>
                     </div>
                   </div>
                 </div>

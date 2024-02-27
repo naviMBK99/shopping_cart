@@ -4,8 +4,8 @@
 }
 
 .container {
-  max-width: 1200px;
-  width: 1000px;
+  max-width: 100vh;
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -54,7 +54,7 @@
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -68,7 +68,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 1200px;
+  width: 100%;
   flex-wrap: wrap;
   background-color: #232323;
   height: 90px;
@@ -145,11 +145,6 @@ h1 {
   text-shadow: 0px 0px 10px #f07171;
 }
 
-.btn {
-  margin-left: 325px;
-  margin-top: 15px;
-}
-
 .edit-h1 {
   margin-left: 550px;
 }
@@ -179,6 +174,10 @@ h1 {
   width: 100%;
   height: 600px;
   background-color: #444;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
 }
 
 ::placeholder {
@@ -204,7 +203,7 @@ h1 {
 
 #btn-add-category-admin {
   margin-top: 350px;
-  margin-left: 636px;
+  margin-left: 685px;
   position: absolute;
 }
 
@@ -217,48 +216,26 @@ h1 {
   box-shadow: 0px 4px 4px #000;
 }
 
-/* details */
-.card-details {
-  display: flex;
-}
-
-.img-cart-details {
-  width: 400px;
-  height: 500px;
-  display: flex;
-}
-
-.text-details {
-  margin-left: 50px;
-}
-
-.name-details {
-  color: #000000;
-  font-size: 30px;
-  font-weight: 700;
-  font-family: monospace;
-}
-
-.description-details {
-  color: #000000;
-  font-size: 20px;
-  font-weight: 700;
-  font-family: monospace;
-  margin-top: 10px;
-}
-
-.price-details {
-  color: #000000;
-  font-size: 20px;
-  font-weight: 700;
-  font-family: monospace;
-}
-
-.h1-details {
+.main__container {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
-  font-size: 50px;
+  align-items: center;
+  height: 100vh;
+  margin: -80px auto;
 }
 
-/* details */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 400px;
+  padding: 20px 0px 20px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
