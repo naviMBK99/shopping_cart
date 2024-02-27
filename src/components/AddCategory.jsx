@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useProduct } from "../context/ProductContextProvider";
+import { useProduct } from "./context/ProductContextProvider";
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 
 const AddCategory = (props) => {
@@ -15,7 +15,7 @@ const AddCategory = (props) => {
     p: 4,
   };
   const { createCategory } = useProduct();
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState("");
   const handleClick = () => {
     if (!category) {
       alert("Заполните поле!");
@@ -39,6 +39,7 @@ const AddCategory = (props) => {
           <TextField
             fullWidth
             variant="outlined"
+            value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
           <Button className="btn red" onClick={handleClick}>

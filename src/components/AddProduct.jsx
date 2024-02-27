@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useProduct } from "../context/ProductContextProvider";
+import { useProduct } from "./context/ProductContextProvider";
 
 const AddProduct = () => {
   //здесь мы получаем наш addProduct с помощю хука useContext,addProduct - это функция которое внутри себя принимает наш API newProduct productContext-это наш созданный контекст
@@ -113,11 +113,10 @@ const AddProduct = () => {
                 fontWeight: "600",
               }}
             />
-
-            <button className="btn red" onClick={saveProduct}>
-              ADD PRODUCT
-            </button>
           </div>
+          <button className="btn red" onClick={saveProduct}>
+            ADD PRODUCT
+          </button>
         </div>
       </div>
     </>
